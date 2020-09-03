@@ -3,3 +3,4 @@ Sunny 91 Degrees Aug 26 2020
 Sunny 100 Degrees Aug 27 2020
 Sunny 300 degrees Aug 28 2020
 sunny 80 degrees Sep 1 2020
+sunny 75 degrees Sep 3 2020
