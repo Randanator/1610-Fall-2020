@@ -4,21 +4,21 @@ using UnityEngine;
 public class MoverScript : MonoBehaviour
 {    public float speed = 5f;
     public float x, y, z;
-    void Start()
+    Void Start()
     {
         Debug.Log("Avengers Assemble!");
     }
-    void Update()
+    Void Update()
     {
         x = speed * Input.GetAxis("Horizontal") * Time.deltaTime;
         y = speed * Input.GetAxis("Vertical") * Time.deltaTime;
-        transform.Translate(x,y,z);
+        Transform.Translate(x,y,z);
     }
-    public void Up()
+    public Void Up()
     {
         transform.Translate(0, speed, 0);
     }
-     public void Down()
+     public Void Down()
     {
-    transform.Translate(0, -speed, 0); }
+    Transform.Translate(0, -speed, 0); }
 )
