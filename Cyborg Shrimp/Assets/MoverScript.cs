@@ -8,8 +8,12 @@ public class MoverScript : MonoBehaviour
     public int points = 60;
     public string password = "12345";
     public string playerName = "Randanator";
-    private void Update()
+    public void Update()
     {
+        if (Input.GetButton("Jump"))
+        {
+            
+        }
         var vInput = speed * Time.deltaTime * Input.GetAxis("Vertical");
         var hInput = speed * Time.deltaTime * Input.GetAxis("Horizontal");
         transform.Translate(hInput, vInput, 0);
