@@ -1,14 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class FollowPlayerX : MonoBehaviour
+namespace Challenge_1.Scripts
 {
-    public GameObject plane;
-    private Vector3 offset = new Vector3(0, 5 , -10);
-    // Update is called once per frame
-   public void Update()
+    public class FollowPlayerX : MonoBehaviour
     {
-        transform.position = plane.transform.position + offset;
+        public GameObject plane;
+        private Vector3 offset = new Vector3(0, 5 , -10);
+        // Update is called once per frame
+        public void Update()
+        {
+            transform.position = plane.transform.position + offset;
+        }
     }
 }
