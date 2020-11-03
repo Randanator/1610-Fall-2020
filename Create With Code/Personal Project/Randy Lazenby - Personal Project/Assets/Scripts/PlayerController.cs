@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -6,8 +7,9 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     public Rigidbody playerRb;
     public float speed = 1000f;
-    public float verticalInput;
+    public bool shoot;
     public float horizontalInput;
+    
     
     private void Start()
     {
@@ -17,8 +19,11 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
-        playerRb.AddForce(Vector3.forward * (speed * verticalInput * Time.deltaTime));
+        shoot = Input.GetKeyDown(KeyCode.Space);
         playerRb.AddForce(Vector3.right * (speed * horizontalInput * Time.deltaTime));
+        if (shoot)
+        {
+            
+        }
     }
 }
