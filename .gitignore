@@ -9,7 +9,10 @@
 [Bb]uilds/
 [Ll]ogs/
 [Mm]emoryCaptures/
+.meta/
 .Idea/
+.pdf/
+.fbx/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta

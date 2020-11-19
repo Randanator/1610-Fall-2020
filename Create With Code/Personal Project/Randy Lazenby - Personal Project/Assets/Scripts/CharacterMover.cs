@@ -1,6 +1,15 @@
+<<<<<<< Updated upstream
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+=======
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.UIElements;
+>>>>>>> Stashed changes
 
 public class CharacterMover : MonoBehaviour
 {
@@ -12,7 +21,11 @@ public class CharacterMover : MonoBehaviour
 	
     private Vector3 position;
     private Vector3 rotation;
+<<<<<<< Updated upstream
 	
+=======
+    [SerializeField] private GameObject bulletPrefab;
+>>>>>>> Stashed changes
     void Start ()
     {
         Controller = GetComponent<CharacterController>();
@@ -20,6 +33,7 @@ public class CharacterMover : MonoBehaviour
 	
     void Update ()
     {
+<<<<<<< Updated upstream
         if (Controller.isGrounded)
         {
             position.Set(MoveSpeed*Input.GetAxis("Horizontal"), 0, 0);
@@ -35,4 +49,19 @@ public class CharacterMover : MonoBehaviour
         position.y -= Gravity * Time.deltaTime;
         Controller.Move(position * Time.deltaTime);
     }
+=======
+        position.Set(MoveSpeed*Input.GetAxis("Horizontal"), 0, MoveSpeed*Input.GetAxis("Vertical"));
+            //rotation.Set(0, Input.GetAxis("Horizontal"), 0);
+            //transform.Rotate(rotation);
+        position = transform.TransformDirection(position);
+            
+        position.y -= Gravity * Time.deltaTime;
+        Controller.Move(position * Time.deltaTime);
+    }
+
+    private void OnMouseDown()
+    {
+        Instantiate(bulletPrefab);
+    }
+>>>>>>> Stashed changes
 }
