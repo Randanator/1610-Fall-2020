@@ -15,9 +15,19 @@ public class PlayerController : MonoBehaviour
     public float speed = 10;
     public float rotationSpeed = 180;
     private float playerHealth = 1;
+    private bool isPlayerNull = false;
+    private GameManager gameManager;
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
+        isPlayerNull = true;
+        gameManager.GameOver();
+        
+    }
 
     private void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         controller = GetComponent<CharacterController>();
     }
 
@@ -28,11 +38,6 @@ public class PlayerController : MonoBehaviour
         Vector3 move = new Vector3(0, 0, Input.GetAxisRaw("Vertical") * Time.deltaTime);
         move = this.transform.TransformDirection(move);
         controller.Move(move * speed);
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            Instantiate(Bullet);
-        }
 
         var movement = moveDirection * Time.deltaTime;
         controller.Move(movement);

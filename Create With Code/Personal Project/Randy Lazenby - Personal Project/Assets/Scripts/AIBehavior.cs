@@ -10,22 +10,26 @@ public class AIBehavior : MonoBehaviour
     private Transform destination;
     [SerializeField] private GameObject player;
     private bool isPlayerNull = false;
+    private GameManager gameManager;
 
     private void Start()
     {
         isPlayerNull = false;
         agent = GetComponent<NavMeshAgent>();
         destination = player.transform;
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Destroy(other.gameObject);
-        isPlayerNull = true;
-    }
-
+    
     private void Update()
     {
+        while (isPlayerNull)
+        {
+           gameManager.GameOver();
+           
+        }
+        
+            
+        
         if (isPlayerNull)
         {
             agent.SetDestination(Vector3.negativeInfinity);
@@ -35,6 +39,7 @@ public class AIBehavior : MonoBehaviour
         {
             agent.destination = destination.position;
         }
+        
     }
 }
         
